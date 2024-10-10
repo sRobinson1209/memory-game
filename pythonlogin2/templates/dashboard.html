@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Style Sheet for PyScript-->
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.5.2/core.js"></script>
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!--Normal CSS StyleSheet-->
+    <link rel="stylesheet" href="styles.css">
+    <title>Dashboard</title>
+
+    <py-config>
+        packages = ['pandas', 'plotly']
+    </py-config>
+
+</head>
+<body>
+    <!--Sidebar--> 
+    <section id="dash-sidebar">
+        <a href="#">
+            <span class="text">User Dashboard</span>
+        </a>
+        <div id="dash-sidebar-contents">
+            <div>
+                <a href="#" class="profile">
+                    <img src="./blue avatar license free.png" alt="profile image" style="width:120px;height:120px;">
+                    <div id="welcome-message">
+                        <p id="welcome">User Profile</p>
+                        <span>User Web App Summary</span>
+                    </div>
+                </a>
+            </div>
+
+        <div id="dash-content-2">
+            <ul class="dash-side-menu top">
+                <li class="total-stats">
+                    <a href="#">
+                    <i class='bx bxs-doughnut-chart' ></i>
+                    <span class="text"> Total: </span>
+                    <span id="all-total" class="num-text"></span>
+                    </a>
+                </li>
+                <li class="total-stats">
+                    <a href="#">
+                        <i class='bx bxs-doughnut-chart' ></i>
+                        <span class="text">Highest: </span>
+                        <span id="all-highest" class="num-text"></span>
+                    </a>
+                </li>
+                <li class="total-stats">
+                    <a href="#">
+                        <i class='bx bxs-doughnut-chart' ></i>
+                        <span class="text">Average: </span>
+                        <span id="all-avg" class="num-text"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        </div>
+    </section>
+
+    <!--Center-->
+    <section class="dash-middle-section">
+        <div>
+            <div id="filters">
+                <label for="filter">Filter by</label>
+                <select class="filter" id="dropdown-menu" py-change="dropdown-event">
+                    <option value="mini-game-1">Mini-game 1</option>
+                    <option value="mini-game-2">Mini-game 2</option>
+                    <option value="mini-game-3">Mini-game 3</option>
+                    <option value="mini-game-4">Mini-game 4</option>
+                </select>
+            </div>
+            <!--KPI cards-->
+            <div class="center-top">
+                <!--KPI Section-->
+                <div id="kpis" class="kpis">
+                    <ul class="metric-card">
+                        <li>
+                            <span class="material-symbols-outlined">water_drop</span>
+                            <span class="text">
+                                <p class="box-text">Total Points</p>
+                                <h3 id="total_water" class="box-text"></h3>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="download">
+                <a href="#" class="download-button">
+                    <i class='bx bx-cloud-download'></i>
+                    <button id="download" type="button" py-click="download_file">Download CSV</button>
+                </a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
