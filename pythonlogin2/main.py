@@ -124,3 +124,7 @@ def profile():
 @app.route(''/pythonlogin/dashboard')
 def dashboard():
     return render_template('dashboard.html')
+
+@app.route('/favicon.ico')
+def favicon():
+    return '', 204  # Returns no content but prevents the error
